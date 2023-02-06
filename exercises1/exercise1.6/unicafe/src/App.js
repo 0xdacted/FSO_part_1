@@ -1,4 +1,4 @@
-import './App.css';
+import { useState } from 'react'
 
 const Button = ({ handleClick, text }) => (
   <button onClick={handleClick}>
