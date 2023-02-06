@@ -7,12 +7,14 @@ const Button = ({ handleClick, text }) => (
 )
 
 const Display = ({text, count}) => { 
+  
   return (
     <div>
       {text} {count}
     </div>
   )
 }
+
 
   const App = () => {
     const [good, setGood] = useState(0)
@@ -47,6 +49,7 @@ const Display = ({text, count}) => {
       <h1>
         statistics
       </h1>
+      {total > 0 ? ( 
       <div>
         <Display text='good' count={good}/>
         <Display text='neutral' count={neutral}/>
@@ -55,6 +58,10 @@ const Display = ({text, count}) => {
         <Display text='average' count={average} />
         <Display text='positive' count={positive}/>
       </div>
+      )
+      :<div>No feedback given </div>
+      }
+  
       </div>
     )
   }
