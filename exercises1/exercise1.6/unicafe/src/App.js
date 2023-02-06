@@ -7,11 +7,11 @@ const Button = ({ handleClick, text }) => (
 )
 
 const Display = ({text, count}) => { 
-  
   return (
-    <div>
-      {text} {count}
-    </div>
+    <tr>
+      <td>{text}</td> 
+      <td>{count}</td>
+    </tr>
   )
 }
 
@@ -50,14 +50,16 @@ const Display = ({text, count}) => {
         statistics
       </h1>
       {total > 0 ? ( 
-      <div>
-        <Display text='good' count={good}/>
-        <Display text='neutral' count={neutral}/>
-        <Display text='bad' count={bad}/>
-        <Display text='all' count={total}/>
-        <Display text='average' count={average} />
-        <Display text='positive' count={positive}/>
-      </div>
+      <table>
+        <tbody>
+          <Display text='good' count={good}/>
+          <Display text='neutral' count={neutral}/>
+          <Display text='bad' count={bad}/>
+          <Display text='all' count={total}/>
+          <Display text='average' count={average} />
+          <Display text='positive' count={`${positive} %`} /> 
+        </tbody>
+      </table>
       )
       :<div>No feedback given </div>
       }
