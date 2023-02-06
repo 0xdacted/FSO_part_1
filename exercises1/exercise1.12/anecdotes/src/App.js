@@ -26,14 +26,39 @@ const App = () => {
     const newSelected = Math.floor(Math.random() * (max - min + 1)) + min
     setSelected(newSelected)
   }
+  const maxIndex = () => {
+    let maxIdx = -1
+    let maxVal = -1
+    for (let i = 0; i < anecdotes.length; i++) {
+      if (votes[i] > maxVal) {
+        maxIdx = i
+        maxVal = votes[i]
+    }
+  }
+    return maxIdx
+  }
+  const maxVotes = () => {
+    let maxIdx = -1
+    let maxVal = -1
+    for (let i = 0; i < anecdotes.length; i++) {
+      if (votes[i] > maxVal) {
+        maxIdx = i
+        maxVal = votes[i]
+    }
+  }
+    return maxVal
+  }
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p>
       {anecdotes[selected]}
       </p>
       <p>has {votes[selected]} votes</p>
       <button onClick={() => vote(selected)}>vote</button>
       <button onClick={selectRandom}>next anecdote</button>
+      <h1>Anecdote with the most votes</h1>
+      <p>{anecdotes[maxIndex()]} has {maxVotes()} votes</p>
     </div>
   )
 }
